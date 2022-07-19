@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>基本库的使用 | LZL</title>
+    
+    
+        <meta name="keywords" content="基本库的使用" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="并不需要了解各种 HTTP、TCP 等等原理。Python 拥有强大的库支持 1 使用 urllibPython3 中库名统一为【urllib】官方文档地址：https:&#x2F;&#x2F;docs.python.org&#x2F;3&#x2F;library&#x2F;urllib.html  四个主要模块   request:它是最基本的 HTTP 请求模块，可以用来模拟发送请求。就像在浏览器里输入网址然后回车一样，只需要给库方法传入 U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本库的使用">
+<meta property="og:url" content="http://example.com/wiki/%E5%9F%BA%E6%9C%AC%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="LZL">
+<meta property="og:description" content="并不需要了解各种 HTTP、TCP 等等原理。Python 拥有强大的库支持 1 使用 urllibPython3 中库名统一为【urllib】官方文档地址：https:&#x2F;&#x2F;docs.python.org&#x2F;3&#x2F;library&#x2F;urllib.html  四个主要模块   request:它是最基本的 HTTP 请求模块，可以用来模拟发送请求。就像在浏览器里输入网址然后回车一样，只需要给库方法传入 U">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-11T09:43:26.000Z">
+<meta property="article:modified_time" content="2022-07-19T03:17:38.829Z">
+<meta property="article:author" content="liaozonglong">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="LZL" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">LZL</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            计算机
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            服务
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Ansible
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Ansible/">Ansible</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Dzziffice
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/DzzOffice+onlyoffice%E5%AE%89%E8%A3%85/">DzzOffice+onlyoffice安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%20%E4%B8%8B%E5%BB%BA%E7%AB%8B%20Git%20%E4%B8%8E%20GitHub%20%E7%9A%84%E8%BF%9E%E6%8E%A5/">Linux 下建立 Git 与 GitHub 的连接</a></li>  <li class="file"><a href="/wiki/Pptpd/">PPTPD</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PVE
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PVE%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85/">PVE服务器安装</a></li>  <li class="file"><a href="/wiki/Proxmox%20VE%EF%BC%88PVE%EF%BC%89%E5%AE%89%E8%A3%85%E9%BB%91%E7%BE%A4%E6%99%96DS918-7.01/">Proxmox VE（PVE）安装黑群晖DS918-7.01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PXE服务器
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PXE%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/">PXE服务器搭建</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            WEB服务
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Apache2/">Apache2</a></li>  <li class="file"><a href="/wiki/HTML/">HTML</a></li>  <li class="file"><a href="/wiki/Nignx/">Nignx</a></li>  <li class="file"><a href="/wiki/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/">网页基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            云服务
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/AMS%E4%BA%91%E6%9C%8D%E5%8A%A1/">AMS云服务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            代理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">代理的基本原理</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            布谷鸟
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%B8%83%E8%B0%B7%E9%B8%9FMySQL%E6%93%8D%E4%BD%9C/">布谷鸟MySQL操作</a></li>  <li class="file"><a href="/wiki/%E5%B8%83%E8%B0%B7%E9%B8%9F%E6%9C%8D%E5%8A%A1%E7%AB%AF/">布谷鸟服务端</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据库
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%95%A3%E4%B9%B1/">散乱</a></li>  <li class="file"><a href="/wiki/MySQL/">MySQL</a></li>  <li class="file"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%BC%E8%BF%B0/">数据库综述</a></li>  <li class="file"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/hexo/">hexo</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            爬虫
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">爬虫基础</a></li>  <li class="file"><a href="/wiki/%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">爬虫基本原理</a></li>  <li class="file"><a href="/wiki/%E7%88%AC%E8%99%AB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">爬虫开发环境配置</a></li>  <li class="file active"><a href="/wiki/%E5%9F%BA%E6%9C%AC%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">基本库的使用</a></li>  <li class="file"><a href="/wiki/%E8%A7%A3%E6%9E%90%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">解析库的使用</a></li>  <li class="file"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/">数据存储</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            frp
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/frp%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E9%85%8D%E7%BD%AE/">frp服务器与客户端的配置</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            杀软
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%B5%8B%E8%AF%95%E6%9D%80%E8%BD%AF%E4%BB%A3%E7%A0%81/">测试杀软代码</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            渗透
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Metasploit%20%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%8C%87%E5%8D%97/">Metasploit 渗透测试指南</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            硬件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PDA
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PDA%E7%9B%98%E7%82%B9%E6%9E%AA%E6%95%99%E7%A8%8B/">PDA盘点枪教程</a></li>  <li class="file"><a href="/wiki/PDA%E8%AE%BE%E7%BD%AE/">PDA设置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            光猫
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%99%BA%E8%83%BD%E5%AE%BD%E5%B8%A6%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7/">智能宽带超级管理员默认账号</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            打印机
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/KM118%E5%B7%A5%E5%85%B7%E8%AE%BE%E7%BD%AE/">KM118设置</a></li>  <li class="file"><a href="/wiki/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E6%93%8D%E4%BD%9C/">错误代码操作</a></li>  <li class="file"><a href="/wiki/%E6%89%93%E5%8D%B0%E6%9C%BA%E6%89%AB%E6%8F%8F/">打印机扫描</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            扫描枪
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%89%AB%E6%8F%8F%E6%9E%AA/">扫描枪</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            盘点枪
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%9B%98%E7%82%B9%E6%9E%AA%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">盘点枪软件安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            键盘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E9%94%AE%E7%9B%98%E7%94%A8%E4%B8%8D%E4%BA%86/">键盘用不了</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            系统
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            manjaro
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/VM%E5%AE%89%E8%A3%85Manjaro/">VM安装Manjaro</a></li>  <li class="file"><a href="/wiki/manjaro/">manjaro</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Linux/">Linux</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mac
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MAC%E7%9A%84%E6%89%93%E5%8D%B0%E6%9C%BA%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9%E6%89%93%E5%8D%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%A6%82%E8%B4%A6%E6%88%B7%EF%BC%8C%E8%89%B2%E5%BD%A9%E7%AD%89/">MAC的打印机如何更改打印机设置如账户，色彩等</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Windows
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            系统设置
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/">控制面板</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/%E7%B3%BB%E7%BB%9F%E9%97%AE%E9%A2%98/">模板文件</a></li>  <li class="file"><a href="/wiki/%E5%85%B3%E9%97%ADwin10%E6%9B%B4%E6%96%B0/">关闭win10更新</a></li>  <li class="file"><a href="/wiki/net%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/">net安装报错</a></li>  <li class="file"><a href="/wiki/%E5%B0%81%E8%A3%85%E7%B3%BB%E7%BB%9F/">封装系统</a></li>  <li class="file"><a href="/wiki/%E7%BB%B4%E6%8C%81%E7%94%B5%E8%84%91%E6%AD%A3%E5%B8%B8%E8%BF%90%E8%A1%8C%E6%96%B9%E6%A1%88/">维持电脑正常运行方案</a></li>  <li class="file"><a href="/wiki/Win10%E7%94%B5%E8%84%91%E7%9A%84Bitlocker%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%93%9D%E5%B1%8F%E9%94%81%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/">Win10电脑的Bitlocker是什么？蓝屏锁了怎么办？</a></li>  <li class="file"><a href="/wiki/windows%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F0x41301%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">windows任务计划程序0x41301问题解决方法</a></li>  <li class="file"><a href="/wiki/%E7%94%B5%E8%84%91%E5%90%AF%E6%9C%BA%E6%97%B6%E5%87%BA!windows!system32!drivers!bootsafe64.sys/">电脑启机时出\windows\system32\drivers\bootsafe64.sys</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Windows_server
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E9%80%9A%E9%81%93/">服务器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            archlinux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/arch%E5%AE%89%E8%A3%85/">arch安装</a></li>  <li class="file"><a href="/wiki/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%BA%94%E7%94%A8/">桌面环境与常用应用</a></li>  <li class="file"><a href="/wiki/archlinux%E7%B3%BB%E7%BB%9F%E5%B1%82%E9%9D%A2%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">archlinux系统层面基本操作</a></li>  <li class="file"><a href="/wiki/archlinux%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">archlinux一些软件安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            启动盘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E4%BC%98%E5%90%AF%E9%80%9A%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C/">优启通一些其他操作</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            群辉
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%BE%A4%E8%BE%89%E7%BD%91%E7%9B%98%E5%90%8C%E6%AD%A5/">群辉网盘同步</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            虚拟机
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%87%8C%E8%BF%90%E8%A1%8CTails%20Linux/">Virtualbox虚拟机里运行Tails Linux</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            计算机语言
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Android studio
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Android%20studio/">Android studio</a></li>  <li class="file"><a href="/wiki/Android%20CameraX%20%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">Android CameraX 使用入门</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/markdown/">markdown</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Django/">Django</a></li>  <li class="file"><a href="/wiki/python%E8%AF%AD%E5%8F%A5/">python语句</a></li>  <li class="file"><a href="/wiki/Python%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Python目录结构</a></li>  <li class="file"><a href="/wiki/python%E8%BF%9E%E6%8E%A5MySQL/">python连接MySQL</a></li>  <li class="file"><a href="/wiki/Python/">Python</a></li>  <li class="file"><a href="/wiki/Python%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8/">Python一些使用</a></li>  <li class="file"><a href="/wiki/os/">os</a></li>  <li class="file"><a href="/wiki/xlwt/">xlwt</a></li>  <li class="file"><a href="/wiki/easyocr/">easyocr</a></li>  <li class="file"><a href="/wiki/%E5%AD%97%E7%AC%A6%E6%93%8D%E4%BD%9C/">字符操作</a></li>  <li class="file"><a href="/wiki/selenium/">selenium</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            VIM
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/VIM+Markdown/">VIM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            爬虫
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Ajax%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96/">Ajax数据爬取</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/docker/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            正则表达式
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Office
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Office%E9%97%AE%E9%A2%98/">Office问题</a></li>  <li class="file"><a href="/wiki/office%E9%9D%99%E9%BB%98%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE/">office静默安装设置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Xmind
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Xmind%E7%A0%B4%E8%A7%A3/">Xmind破解</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            foxmail
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E4%BF%9D%E5%AD%98%E4%B8%8D%E6%96%AD%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/">保存不断密码错误</a></li>  <li class="file"><a href="/wiki/%E6%8A%A5%E9%94%99/">报错</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            丽晶
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li>  <li class="file"><a href="/wiki/%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/">结构说明文档</a></li>  <li class="file"><a href="/wiki/POS%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">POS基本配置</a></li>  <li class="file"><a href="/wiki/%E4%B8%BD%E6%99%B6%E6%89%93%E5%8D%B0%E6%9C%BA%E6%9B%B4%E6%8D%A2%E6%89%93%E5%8D%B0%E6%A0%BC%E5%BC%8F/">丽晶打印机更换打印格式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            布谷鸟
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%B8%83%E8%B0%B7%E9%B8%9FIP/">布谷鸟IP</a></li>  <li class="file"><a href="/wiki/%E5%B8%83%E8%B0%B7%E9%B8%9F%E9%97%AE%E9%A2%98/">布谷鸟问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            悠络客
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%82%A0%E7%BB%9C%E5%AE%A2/">悠络客</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            浏览器
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%87%E4%BB%BD/">浏览器备份</a></li>  <li class="file"><a href="/wiki/%E4%BD%BF%E7%94%A8%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%87%BA%E7%8E%B0%E6%8F%92%E4%BB%B6%E6%9C%AA%E5%B0%B1%E7%BB%AA%E4%BB%A5%E5%8F%8ACLodop%E4%BA%91%E6%89%93%E5%8D%B0%E6%9C%8D%E5%8A%A1/">使用谷歌浏览器出现插件未就绪以及CLodop云打印服务</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/sqlserver%E5%A4%87%E4%BB%BD/">sqlserver备份</a></li>  <li class="file"><a href="/wiki/C%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80/"></a></li>  <li class="file"><a href="/wiki/Torch/">Torch</a></li>  <li class="file"><a href="/wiki/adb%E5%91%BD%E4%BB%A4/"></a></li>  <li class="file"><a href="/wiki/conda/">conda</a></li>  <li class="file"><a href="/wiki/datetime/"></a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-基本库的使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%9C%8D%E5%8A%A1/">服务</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%9C%8D%E5%8A%A1/%E7%88%AC%E8%99%AB/">爬虫</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E5%9F%BA%E6%9C%AC%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+            <time datetime="2022-07-11T09:43:26.000Z" itemprop="datePublished">2022-07-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            基本库的使用
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>并不需要了解各种 HTTP、TCP 等等原理。Python 拥有强大的库支持</p>
+<h2 id="1-使用-urllib"><a href="#1-使用-urllib" class="headerlink" title="1 使用 urllib"></a>1 使用 urllib</h2><p>Python3 中库名统一为【urllib】<br>官方文档地址：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/urllib.html">https://docs.python.org/3/library/urllib.html</a></p>
+<ul>
+<li>四个主要模块</li>
+</ul>
+<ol>
+<li>request:它是最基本的 HTTP 请求模块，可以用来模拟发送请求。就像在浏览器里输入网址然后回车一样，只需要给库方法传入 URL 以及额外的参数，就可以模拟实现这个过程了</li>
+<li>error：异常处理模块，如果出现请求错误，我们可以捕获这些异常，然后进行重试或其他操作以保证程序不会意外终止。</li>
+<li>parse:一个工具模块，提供了许多 URL 处理方法，比如拆分、解析、合并</li>
+<li>robotparser:主要是用来识别网站的 robots.txt 文件，然后判断哪些网站可以爬，哪些网站不可以爬，它其实用得比较少。</li>
+</ol>
+<h3 id="1-1-发送请求"><a href="#1-1-发送请求" class="headerlink" title="1.1 发送请求"></a>1.1 发送请求</h3><h4 id="1-1-1-URLopen"><a href="#1-1-1-URLopen" class="headerlink" title="1.1.1 URLopen()"></a>1.1.1 URLopen()</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(&#x27;https://www.python.org&#x27;)</span><br><span class="line">print(response.read())	#抓取并输出文本</span><br><span class="line"></span><br><span class="line">print(type(response))</span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;&lt;class <span class="string">&#x27;http.client.HTTPResponse&#x27;</span>&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">抓取的网页是一个HTTPResposne类型的对象，主要包含<span class="built_in">read</span>()、readinto()、getheader(name)getheaders()、fileno()等方法，以及msg、version、status、reason、debuglevel、closed等属性。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(&#x27;https://www.python.org&#x27;)</span><br><span class="line">print(response.status)</span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;200</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">状态值</span></span><br><span class="line"></span><br><span class="line">print(response.getheaders())</span><br><span class="line"></span><br><span class="line">print(response.getheader(&#x27;Server&#x27;))</span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt; nginx</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">服务器使用Nginx搭建</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import urllib.parse</span><br><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">data = bytes(urllib.parse.urlencode(&#123;&#x27;word&#x27;:&#x27;hello&#x27;&#125;),encoding=&#x27;utf-8&#x27;)</span><br><span class="line"><span class="meta">#</span><span class="language-bash">创建一个word参数，值为hello。使用urlencode:将参数字典转化为字符串，指定为utf8格式</span></span><br><span class="line">response = urllib.request.urlopen(&#x27;http://httpbin.org/post&#x27;,data=data)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(&#x27;http://httpbin.org/get&#x27;,timeout=1)</span><br><span class="line">print(response.read())</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash"><span class="comment">###################以上代码功能再实现_超时跳过抓取##################</span></span></span><br><span class="line">import socket</span><br><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    response = urllib.request.urlopen(&#x27;http://httpbin.org/get&#x27;,timeout=0.1)</span><br><span class="line">except urllib.error.URLError as e:</span><br><span class="line">    if isinstance(e.reason,socket.timeout):</span><br><span class="line">        print(&#x27;TIME OUT&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>其他参数：<br><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/urllib.request.html">https://docs.python.org/3/library/urllib.request.html</a></p>
+<h4 id="1-1-2-request"><a href="#1-1-2-request" class="headerlink" title="1.1.2 request"></a>1.1.2 request</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">使用对象发送请求</span></span><br><span class="line"></span><br><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">request = urllib.request.Request(&#x27;https://python.org&#x27;)</span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">print(response.read().decode(&#x27;utf-8&#x27;))</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">request是一个对象。</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">参数结构：class urllib. request. Request ( ur 1, data=None, headers=&#123;&#125;, origin_req_host=None, unverifiable=False, method=None)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">带参数请求</span></span><br><span class="line"></span><br><span class="line">from urllib import request,parse</span><br><span class="line"></span><br><span class="line">url = &#x27;http://httpbin.org/post&#x27;</span><br><span class="line">headers = &#123;</span><br><span class="line">    &#x27;User-Agent&#x27;:&#x27;Mozilla/4.0 (compatible;MSIE 5.5; Windows NT&#x27;,</span><br><span class="line">    &#x27;Host&#x27;:&#x27;httpbin.org&#x27;</span><br><span class="line">&#125;</span><br><span class="line">dict = &#123;</span><br><span class="line">    &#x27;name&#x27;:&#x27;Germey&#x27;</span><br><span class="line">&#125;</span><br><span class="line">data = bytes(parse.urlencode(dict),encoding=&#x27;utf8&#x27;)</span><br><span class="line">req = request.Request(url=url,data=data,headers=headers,method=&#x27;POST&#x27;)</span><br><span class="line">response = request.urlopen(req)</span><br><span class="line">print(response.read().decode(&#x27;utf-8&#x27;))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个参数 URL 用于请求 URL,这是必传参数，其他都是可选参数。</li>
+<li>第二个参数 data 如果要传，必须传 bytes(字节流)类型的。如果它是字典，可以先用 urllib.parse 模块里的 urlencode()编码。</li>
+<li>第三个参数 headers 是一个字典，它就是请求头，我们可以在构造请求时通过 headers 参数直接构造，也可以通过调用请求实例的 add header()方法添加。</li>
+<li>添加请求头最常用的用法就是通过修改 User-Agent 来伪装浏览器，默认的 User-Agent 是</li>
+<li>Python-urllib,我们可以通过修改它来伪装浏览器。比如要伪装火狐浏览器，你可以把它设置为：</li>
+<li>Mozilla&#x2F;5.0 (X11;U;Linux i686)Gecko&#x2F;20071127 Firefox&#x2F;2.0.0.11</li>
+<li>第四个参数 origin_req_host 指的是请求方的 host 名称或者 IP 地址。</li>
+<li>第五个参数 unverifiable 表示这个请求是否是无法验证的，默认是 False,意思就是说用户没有足够权限来选择接收这个请求的结果。例如，我们请求一个 HTML 文档中的图片，但是我们没有自动抓取图像的权限，这时 unverifiable 的值就是 True。</li>
+<li>第六个参数 method 是一个字符串，用来指示请求使用的方法，比如 GET、POST 和 PUT 等。</li>
+</ul>
+<h4 id="1-1-3-高级用法"><a href="#1-1-3-高级用法" class="headerlink" title="1.1.3 高级用法"></a>1.1.3 高级用法</h4><p>handler 可以处理登陆验证、代理、cookies</p>
+<ul>
+<li>HTTPdefaulterrorhandler：用于处理 HTTP 响应错误</li>
+</ul>
+<p>HTTPredirecthandler：用于处理重定向</p>
+<ul>
+<li>HTTPcookieprocessor：用于处理 cookies</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import http.cookiejar,urllib.request</span><br><span class="line">cookie = http.cookiejar.CookieJar()</span><br><span class="line">handler = urllib.request.HTTPCookieProcessor(cookie)</span><br><span class="line">opener = urllib.request.build_opener(handler)</span><br><span class="line">response = opener.open(&#x27;http://www.baidu.com&#x27;)</span><br><span class="line">for item in cookie:</span><br><span class="line">    print(item.name+&quot;=&quot;+item.value)</span><br><span class="line">cooker.save(</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">获取网页的cookies</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>proxyhandler：用于设置代理</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from urllib.error import URLError</span><br><span class="line">from urllib.request import ProxyHandler,build_opener</span><br><span class="line"></span><br><span class="line">proxy_handler = ProxyHandler(&#123;</span><br><span class="line">    &#x27;http&#x27;:&#x27;http:/127.0.0.1:9743&#x27;,</span><br><span class="line">    &#x27;https&#x27;:&#x27;https://127.0.0.1:9743&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">opener = build_opener(proxy_handler)</span><br><span class="line">try:</span><br><span class="line">    response = opener.open(&#x27;https://www.baidu.com&#x27;)</span><br><span class="line">    print(response.read().decode(&#x27;utf-8&#x27;))</span><br><span class="line">except URLError as e:</span><br><span class="line">    print(e.reason)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">使用本地的9743端口的代理</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">proxy_handler字典对应的是协议及协议对应使用的代理</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>HTTPpasswordmgr：用于管理密码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from urllib.request import HTTPPasswordMgrWithDefaultRealm,HTTPBasicAuthHandler,build_opener</span><br><span class="line">from urllib.error import URLError</span><br><span class="line">username = &#x27;username&#x27;</span><br><span class="line">password =&#x27;password&#x27;</span><br><span class="line">url = &#x27;http://localhost:5000/&#x27;</span><br><span class="line">p = HTTPPasswordMgrWithDefaultRealm()</span><br><span class="line">p.add_password(None,url,username,password)</span><br><span class="line">auth_handler = HTTPBasicAuthHandler(p)</span><br><span class="line">opener = build_opener(auth_handler)</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    result = opener.open(url)</span><br><span class="line">    html = result.read().decode(&#x27;utf-8&#x27;)</span><br><span class="line">    print(html)</span><br><span class="line">except URLError as e:</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+
+<p>HTTPbasicauthhandler：用于管理认证</p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/urllib.request.html">https://docs.python.org/3/library/urllib.request.html</a></p>
+<h3 id="1-2-处理异常"><a href="#1-2-处理异常" class="headerlink" title="1.2 处理异常"></a>1.2 处理异常</h3><h4 id="1-2-1-URLerror"><a href="#1-2-1-URLerror" class="headerlink" title="1.2.1 URLerror"></a>1.2.1 URLerror</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from urllib import request,error</span><br><span class="line">try:</span><br><span class="line">    response = request.urlopen(&#x27;https://cuiqingcai.com/index.htm&#x27;)</span><br><span class="line">except error.URLError as e:</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+
+<p>程序对本该发生错误中止的内容进行了“not found”输入。然后继续执行下一步，而非原先中止程序</p>
+<h4 id="1-2-2-HTTPerror"><a href="#1-2-2-HTTPerror" class="headerlink" title="1.2.2 HTTPerror"></a>1.2.2 HTTPerror</h4><p>专门处理 HTTP 请求错误</p>
+<h3 id="1-3-解析链接"><a href="#1-3-解析链接" class="headerlink" title="1.3 解析链接"></a>1.3 解析链接</h3><h4 id="主要是对链接的进行处理，可以重构请求，可以解析请求"><a href="#主要是对链接的进行处理，可以重构请求，可以解析请求" class="headerlink" title="主要是对链接的进行处理，可以重构请求，可以解析请求"></a>主要是对链接的进行处理，可以重构请求，可以解析请求</h4><h3 id="1-4-分析-Robots-协议"><a href="#1-4-分析-Robots-协议" class="headerlink" title="1.4 分析 Robots 协议"></a>1.4 分析 Robots 协议</h3><p>robots 即机器人协议、爬虫协议。用于规定爬虫许可爬取的范围</p>
+<p>可用 robotparser 进行解析</p>
+<h2 id="2-使用-requests"><a href="#2-使用-requests" class="headerlink" title="2 使用 requests"></a>2 使用 requests</h2><h3 id="2-1-基本用法"><a href="#2-1-基本用法" class="headerlink" title="2.1 基本用法"></a>2.1 基本用法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">r = requests.get(&#x27;https://www.baidu.com/&#x27;)</span><br><span class="line">print(type(r))</span><br><span class="line">print(r.status_code)</span><br><span class="line">print(r.text)</span><br><span class="line">print(r.cookies)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">&lt;class <span class="string">&#x27;requests.models.Response&#x27;</span>&gt;</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">200</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;<span class="built_in">head</span>&gt;&lt;meta http-equiv=content-type content=text/html;charset=utf-8&gt;&lt;meta http-equiv=X-UA-Compatible content=IE=Edge&gt;&lt;meta content=always name=referrer&gt;&lt;<span class="built_in">link</span> rel=stylesheet <span class="built_in">type</span>=text/css href=https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/bdorz/baidu.min.css&gt;&lt;title&gt;ç¾åº¦ä¸ä¸ï¼ä½ å°±ç¥é&lt;/title&gt;&lt;/head&gt; &lt;body <span class="built_in">link</span>=<span class="comment">#0000cc&gt; &lt;div id=wrapper&gt; &lt;div id=head&gt; &lt;div class=head_wrapper&gt; &lt;div class=s_form&gt; &lt;div class=s_form_wrapper&gt; &lt;div id=lg&gt; &lt;img hidefocus=true src=//www.baidu.com/img/bd_logo1.png width=270 height=129&gt; &lt;/div&gt; &lt;form id=form name=f action=//www.baidu.com/s class=fm&gt; &lt;input type=hidden name=bdorz_come value=1&gt; &lt;input type=hidden name=ie value=utf-8&gt; &lt;input type=hidden name=f value=8&gt; &lt;input type=hidden name=rsv_bp value=1&gt; &lt;input type=hidden name=rsv_idx value=1&gt; &lt;input type=hidden name=tn value=baidu&gt;&lt;span class=&quot;bg s_ipt_wr&quot;&gt;&lt;input id=kw name=wd class=s_ipt value maxlength=255 autocomplete=off autofocus=autofocus&gt;&lt;/span&gt;&lt;span class=&quot;bg s_btn_wr&quot;&gt;&lt;input type=submit id=su value=ç¾åº¦ä¸ä¸ class=&quot;bg s_btn&quot; autofocus&gt;&lt;/span&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=u1&gt; &lt;a href=http://news.baidu.com name=tj_trnews class=mnav&gt;æ°é»&lt;/a&gt; &lt;a href=https://www.hao123.com name=tj_trhao123 class=mnav&gt;hao123&lt;/a&gt; &lt;a href=http://map.baidu.com name=tj_trmap class=mnav&gt;å°å¾&lt;/a&gt; &lt;a href=http://v.baidu.com name=tj_trvideo class=mnav&gt;è§é¢&lt;/a&gt; &lt;a href=http://tieba.baidu.com name=tj_trtieba class=mnav&gt;è´´å§&lt;/a&gt; &lt;noscript&gt; &lt;a href=http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb&gt;ç»å½&lt;/a&gt; &lt;/noscript&gt; &lt;script&gt;document.write(&#x27;&lt;a href=&quot;http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=&#x27;+ encodeURIComponent(window.location.href+ (window.location.search === &quot;&quot; ? &quot;?&quot; : &quot;&amp;&quot;)+ &quot;bdorz_come=1&quot;)+ &#x27;&quot; name=&quot;tj_login&quot; class=&quot;lb&quot;&gt;ç»å½&lt;/a&gt;&#x27;);</span></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">                &lt;/script&gt; &lt;a href=//www.baidu.com/more/ name=tj_briicon class=bri style=<span class="string">&quot;display: block;&quot;</span>&gt;æ´å¤äº§å&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div <span class="built_in">id</span>=ftCon&gt; &lt;div <span class="built_in">id</span>=ftConw&gt; &lt;p <span class="built_in">id</span>=lh&gt; &lt;a href=http://home.baidu.com&gt;å³äºç¾åº¦&lt;/a&gt; &lt;a href=http://ir.baidu.com&gt;About Baidu&lt;/a&gt; &lt;/p&gt; &lt;p <span class="built_in">id</span>=<span class="built_in">cp</span>&gt;©2017 Baidu &lt;a href=http://www.baidu.com/duty/&gt;ä½¿ç¨ç¾åº¦åå¿è¯»&lt;/a&gt;  &lt;a href=http://jianyi.baidu.com/ class=cp-feedback&gt;æè§åé¦&lt;/a&gt; äº¬ICPè¯030173å·  &lt;img src=//www.baidu.com/img/gs.gif&gt; &lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># &lt;RequestsCookieJar[&lt;Cookie BDORZ=27315 for .baidu.com/&gt;]&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-1-get-请求"><a href="#2-2-1-get-请求" class="headerlink" title="2.2.1 get 请求"></a>2.2.1 get 请求</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    &#x27;name&#x27;:&#x27;germey&#x27;,</span><br><span class="line">    &#x27;age&#x27;:22</span><br><span class="line">&#125;</span><br><span class="line">r = requests.get(&#x27;http://www.httpbin.org/get&#x27;,params=data)</span><br><span class="line">print(r.text)</span><br><span class="line">print(r.json())	#该语句可以将网页返回的&#x27;str&#x27;类型直接转换成&#x27;字典&#x27;格式</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">以上语句 等价 http://www.httpbin.org/get?age=22&amp;name=germey</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>抓取网页</p>
+</li>
+<li><p>抓取二进制数据</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">r = requests.get(&quot;https://github.com/favicon.ico&quot;)</span><br><span class="line">with open(&#x27;favicon.ico&#x27;,&#x27;wb&#x27;) as f:</span><br><span class="line">    f.write(r.content)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">图片、音频、视频本质都是由二进制组成。所以要用<span class="string">&#x27;wb&#x27;</span>以二进制写的形式打开</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-POST-请求"><a href="#2-2-2-POST-请求" class="headerlink" title="2.2.2 POST 请求"></a>2.2.2 POST 请求</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">data = &#123;&#x27;name&#x27;:&#x27;germey&#x27;,&#x27;age&#x27;:&#x27;22&#x27;&#125;</span><br><span class="line">r = requests.post(&quot;http://httpbin.org/post&quot;,data=data)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-高级用法"><a href="#2-2-高级用法" class="headerlink" title="2.2 高级用法"></a>2.2 高级用法</h3><h4 id="2-2-1-文件上传"><a href="#2-2-1-文件上传" class="headerlink" title="2.2.1 文件上传"></a>2.2.1 文件上传</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">files =&#123;&#x27;file&#x27;:open(&#x27;favicon.ico&#x27;,&#x27;rb&#x27;)&#125;</span><br><span class="line">r=requests.post(&quot;http://httpbin.org/post&quot;,files=files)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-cookies"><a href="#2-2-2-cookies" class="headerlink" title="2.2.2 cookies"></a>2.2.2 cookies</h4><h4 id="2-2-3-会话维持"><a href="#2-2-3-会话维持" class="headerlink" title="2.2.3 会话维持"></a>2.2.3 会话维持</h4><p>利用 session</p>
+<h4 id="2-2-4-SSL-证书验证"><a href="#2-2-4-SSL-证书验证" class="headerlink" title="2.2.4 SSL 证书验证"></a>2.2.4 SSL 证书验证</h4><h4 id="2-2-5-代理设置"><a href="#2-2-5-代理设置" class="headerlink" title="2.2.5 代理设置"></a>2.2.5 代理设置</h4><h4 id="2-2-6-超时设置"><a href="#2-2-6-超时设置" class="headerlink" title="2.2.6 超时设置"></a>2.2.6 超时设置</h4><h4 id="2-2-7-身份认证"><a href="#2-2-7-身份认证" class="headerlink" title="2.2.7 身份认证"></a>2.2.7 身份认证</h4><h2 id="3-正则表达式"><a href="#3-正则表达式" class="headerlink" title="3 正则表达式"></a>3 正则表达式</h2><h3 id="3-1-match"><a href="#3-1-match" class="headerlink" title="3.1 match()"></a>3.1 match()</h3><p>match()方法会尝试从字符串的起始位置匹配正则表达式，如果匹配，就返回匹配成功的结果；如果不匹配，就返回 None。示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">content = <span class="string">&#x27;Hello 123 4567 World_This is a Regex Demo&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(content))</span><br><span class="line">result = re.match(<span class="string">&#x27;^Hello\s\d\d\d\s\d&#123;4&#125;\s\w&#123;10&#125;&#x27;</span>,content)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="built_in">print</span>(result.group())</span><br><span class="line"><span class="built_in">print</span>(result.span())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 41</span></span><br><span class="line"><span class="comment"># &lt;re.Match object; span=(0, 25), match=&#x27;Hello 123 4567 World_This&#x27;&gt;</span></span><br><span class="line"><span class="comment"># Hello 123 4567 World_This</span></span><br><span class="line"><span class="comment"># (0, 25)</span></span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    正则表达式
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/%E7%88%AC%E8%99%AB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">爬虫开发环境配置</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            liaozonglong &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
